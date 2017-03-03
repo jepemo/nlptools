@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+python3 tools/get_raw_tweets.py $@
