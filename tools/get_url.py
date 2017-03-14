@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import argparse
 import chardet
 import sys
 import urllib.request
@@ -14,9 +15,17 @@ def uri_validator(x):
         return False
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("get_url <URL>")
-        sys.exit(0)
+    parser = argparse.ArgumentParser(description='Transfer URL content')
+    parser.add_argument("url", metavar="URL", type=str, nargs="?", help="URL to fetch")
+
+    args = parser.parse_args()
+
+    url = args.url
+
+    # if len(sys.argv) != 2:
+    #     parser.print_help()
+    #     # print("get_url <URL>")
+    #     sys.exit(0)
 
     url = sys.argv[1]
 
