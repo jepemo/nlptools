@@ -17,4 +17,4 @@ world
 
 ## Documentation
 
-* [Commands](doc/commands.md)5º''
+* [Commands](doc/commands.md)
