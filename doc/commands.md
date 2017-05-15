@@ -2,6 +2,7 @@
 
 - [fetch-url](#fetch-url)
 - [fetch-tweets](#fetch-tweets)
+- [proc-clean](#proc-clean)
 
 ## fetch-url
 Transfer URL content (like CURL)
