@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 
-import re, csv, sys, argparse
+import re
+import csv
+import sys
+import argparse
+from bs4 import BeautifulSoup
 
 def load_rules (filepath):
     rules = {}
@@ -16,18 +20,20 @@ def load_rules (filepath):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Clean input text with regex rules')
-    parser.add_argument("--debug", dest="debug_mode", action="store_true", help="Active debug mode")
+    parser.add_argument("--html", dest="html", action="store_true", help="Remove html tags")
     parser.add_argument("--rules", dest="rules_file", action="store", help="Rules CSV file")
     args = parser.parse_args()
 
-    if (args.rules_file is None):
+    if (args.html):
+        for line in sys.stdin:
+            soup = BeautifulSoup(line, 'html.parser')
+            print(soup.text)
+    elif (args.rules_file is None):
         parser.print_help()
     else:
         rules = load_rules(args.rules_file)
         for line in sys.stdin:
             line = line
-            if args.debug_mode:
-                sys.stderr.write("TO_CLEAN: %s" % (line))
             if line is not None:
                 result = line.lower()
                 for regex, repl in rules.items():
