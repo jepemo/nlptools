@@ -3,6 +3,9 @@
 - [fetch-url](#fetch-url)
 - [fetch-tweets](#fetch-tweets)
 - [proc-clean](#proc-clean)
+- [proc-lmtz](#proc-lmtz)
+- [proc-stem](#proc-stem)
+- [proc-tkn](#proc-tkn)
 
 ## fetch-url
 Transfer URL content (like CURL)
@@ -74,7 +77,7 @@ fetch-tweets
 Clean a text input with a variety of modes.
 
 ```bash
-usage: cleaner.py [-h] [--html] [--rules RULES_FILE]
+usage: proc-clean [-h] [--html] [--rules RULES_FILE]
 
 Clean input text with regex rules
 
@@ -87,4 +90,65 @@ optional arguments:
 Example:
 ```bash
 fetch-url https://news.ycombinator.com/item?id=14336563 | proc-clean --html
+```
+
+# proc-lmtz
+Lemmatize input (previously tokenized)
+
+```bash
+usage: proc-lmtz [-h] [--lang LANG]
+
+Lemmatize input (previously tokenized)
+
+optional arguments:
+  -h, --help   show this help message and exit
+  --lang LANG  Language (defalt: english): spanish, etc.
+```
+
+Example:
+```bash
+echo "books" | proc-lmtz
+# book
+```
+
+# proc-stem
+Apple the stemming process to the input data.
+
+```bash
+usage: proc-stem [-h] [--type TYPE] [--lang LANG]
+
+Apply the stemming procees to the input (previously tokenized)
+
+optional arguments:
+  -h, --help   show this help message and exit
+  --type TYPE  Stemming type: porter, lancaster, snowball
+  --lang LANG  Language (defalt: english): spanish, etc.
+```
+
+Example:
+```bash
+echo "going" | proc-stem
+# go
+```
+
+# proc-tkn
+Tokenize input and results one token per line
+
+```bash
+usage: proc-tkn [-h] [--lang LANG]
+
+Tokenize input and results one token per line
+
+optional arguments:
+  -h, --help   show this help message and exit
+  --lang LANG  Language (defalt: english): spanish, etc.
+
+```
+
+Example:
+```bash
+echo "Hello world!" | proc-tkn
+# Hello
+# world
+# !
 ```

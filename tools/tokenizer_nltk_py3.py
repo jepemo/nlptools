@@ -7,7 +7,7 @@ import nltk
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Tokenize input and results one token per line')
+    parser = argparse.ArgumentParser(prog='proc-tkn', description='Tokenize input and results one token per line')
     parser.add_argument("--lang", type=str, default='english', help="Language (defalt: english): spanish, etc.")
 
     args = parser.parse_args()

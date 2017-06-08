@@ -19,7 +19,7 @@ def load_rules (filepath):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Clean input text with regex rules')
+    parser = argparse.ArgumentParser(prog='proc-clean', description='Clean input text with regex rules')
     parser.add_argument("--html", dest="html", action="store_true", help="Remove html tags")
     parser.add_argument("--rules", dest="rules_file", action="store", help="Rules CSV file")
     args = parser.parse_args()
