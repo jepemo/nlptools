@@ -6,6 +6,7 @@
 - [proc-lmtz](#proc-lmtz)
 - [proc-stem](#proc-stem)
 - [proc-tkn](#proc-tkn)
+- [feat-tfidf](#feat-tfidf)
 
 ## fetch-url
 Transfer URL content (like CURL)
@@ -151,4 +152,40 @@ echo "Hello world!" | proc-tkn
 # Hello
 # world
 # !
+```
+
+# feat-tfidf
+Calculate the basic text features: TF, IDF and TFIDF
+
+```bash
+usage: feat-tfidf [-h] [--type TYPE] [--sep SEP]
+
+Calculate tfidf, tf and idf features from a list of words
+
+optional arguments:
+  -h, --help   show this help message and exit
+  --type TYPE  Calculation type: tfidf, tf or idf (Default tfidf)
+  --sep SEP    Document separator
+```
+
+Example:
+```
+echo "Roses are red. Violets are blue. Sugar is sweet. And so are you." \
+  | proc-tkn \
+  | prok-lmtz \
+  | feat-tfidf --type idf --sep .
+
+# Result
+#
+# and 4.0
+# are 1.3333333333333333
+# blue 4.0
+# is 4.0
+# red 4.0
+# rose 4.0
+# so 4.0
+# sugar 4.0
+# sweet 4.0
+# violet 4.0
+# you 4.0
 ```

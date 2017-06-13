@@ -31,5 +31,5 @@ if __name__ == "__main__":
         print("Invalid stemmer type")
         sys.exit(1)
 
-    for line in fileinput.input():
+    for line in sys.stdin:
         print(stemmer.stem(line.strip()))

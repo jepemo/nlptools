@@ -2,7 +2,7 @@
 # -*- coding: utf8 -*-
 
 import argparse
-import fileinput
+import sys
 from nltk.stem import WordNetLemmatizer
 
 if __name__ == "__main__":
@@ -12,5 +12,5 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     wordnet_lemmatizer = WordNetLemmatizer()
-    for line in fileinput.input():
+    for line in sys.stdin:
         print(wordnet_lemmatizer.lemmatize(line.strip()))
