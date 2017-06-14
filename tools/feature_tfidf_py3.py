@@ -14,6 +14,16 @@ def calculate_idf(word, all_sentences_counter):
 
     return num_documents / appearance_in_docs
 
+def calculate_tf(word, sentence):
+    if word not in sentence:
+        return 0.0
+    return sentence[word]/len(sentence)
+
+def calculate_tfidf(word, sentence, all_sentences):
+    tf = calculate_tf(word, sentence)
+    idf = calculate_idf(word, all_sentences)
+    return tf * idf
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog='feat-tfidf', description='Calculate tfidf, tf and idf features from a list of words')
     parser.add_argument("--type", type=str, default='tfidf', help="Calculation type: tfidf, tf or idf (Default tfidf)")
@@ -32,11 +42,18 @@ if __name__ == "__main__":
         else:
             sentence.update([word])
 
-    if args.type == 'tf':
-        for sentence in all_sentences:
-            for word in sentence:
-                print(word, sentence[word]/len(sentence))
-    elif args.type == 'idf':
-        dwords = sorted(list(set([item for sublist in [list(s.elements()) for s in all_sentences] for item in sublist])))
-        for word in dwords:
-            print(word, calculate_idf(word, all_sentences))
+    dwords = sorted(list(set([item for sublist in [list(s.elements()) for s in all_sentences] for item in sublist])))
+    for word in dwords:
+        print(word + " ", end='')
+        for sent in all_sentences:
+            result = 0.0
+            if args.type == 'tf':
+                result = calculate_tf(word, sent)
+            elif args.type == 'idf':
+                result = calculate_idf(word, all_sentences)
+            elif args.type == 'tfidf':
+                result = calculate_tfidf(word, sent, all_sentences)
+
+            print(str(result) + " ", end='')
+
+        print('')
