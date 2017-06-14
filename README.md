@@ -1,12 +1,12 @@
  # nlptools
 *nlptools* are an Unix inspired utilities for Natural Language Processing.
 
--[Examples](#examples)
-  -[Basic tokenization](#basic-tokenization)
-  -[Lemmatization and Stemming](#lemmatization-and-stemming)
-  -[Basic features](#basic-features)
-  -[Data fetching](#data-fetching)
--[Documentation](#documentation)
+- [Examples](#examples)
+  - [Basic tokenization](#basic-tokenization)
+  - [Lemmatization and Stemming](#lemmatization-and-stemming)
+  - [Basic features](#basic-features)
+  - [Data fetching](#data-fetching)
+- [Documentation](#documentation)
 
 ## Examples
 
@@ -58,8 +58,8 @@ echo "Roses are red. Violets are blue. Sugar is sweet. And so are you." \
 
 ### Data fetching
 ```bash
-bin/fetch-url https://www.gutenberg.org/files/996/old/1donq10.txt \
-  | bin/proc-tkn \
+fetch-url https://www.gutenberg.org/files/996/old/1donq10.txt \
+  | proc-tkn \
   | sort \
   | uniq -c
 
