@@ -1,5 +1,12 @@
- nlptools
+ # nlptools
 *nlptools* are an Unix inspired utilities for Natural Language Processing.
+
+-[Examples](#examples)
+  -[Basic tokenization](#basic-tokenization)
+  -[Lemmatization and Stemming](#lemmatization-and-stemming)
+  -[Basic features](#basic-features)
+  -[Data fetching](#data-fetching)
+-[Documentation](#documentation)
 
 ## Examples
 
@@ -15,7 +22,7 @@ echo "Hello world!" | proc-tkn
 # !
 ```
 
-### Lemmatization & Stemming
+### Lemmatization and Stemming
 
 ```bash
 echo "dog dogs" | bin/proc-tkn | bin/proc-lmtz
@@ -31,7 +38,7 @@ echo "dog dogs" | bin/proc-tkn | bin/proc-lmtz
 ```bash
 echo "Roses are red. Violets are blue. Sugar is sweet. And so are you." \
   | proc-tkn \
-  | prok-lmtz \
+  | proc-lmtz \
   | feat-tfidf --type idf --sep .
 
 # Result
@@ -46,7 +53,40 @@ echo "Roses are red. Violets are blue. Sugar is sweet. And so are you." \
 # sugar 0.0 0.0 1.3333333333333333 0.0
 # sweet 0.0 0.0 1.3333333333333333 0.0
 # violets 0.0 1.3333333333333333 0.0 0.0
-# you 0.0 0.0 0.0 1.0 
+# you 0.0 0.0 0.0 1.0
+```
+
+### Data fetching
+```bash
+bin/fetch-url https://www.gutenberg.org/files/996/old/1donq10.txt \
+  | bin/proc-tkn \
+  | sort \
+  | uniq -c
+
+# Result
+#
+#   5312 ``
+#      1 ~
+#      1 <
+#      1 =
+#      1 >
+#      1 _
+#     40 -
+#  36793 ,
+#   6057 ;
+#    370 :
+#    677 !
+#    970 ?
+#      1 /
+#   7723 .
+#      1 ...
+#    503 '
+#      1 '-
+#   5222 ''
+#    209 (
+#    209 )
+#     20 [
+#     20 ]
 ```
 
 ## Documentation
