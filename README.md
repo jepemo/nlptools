@@ -7,6 +7,8 @@
   - [Basic features](#basic-features)
   - [Data fetching](#data-fetching)
 - [Documentation](#documentation)
+  - [Commands](#commands)
+  - [Cookbook](#cookbook)
 
 ## Examples
 
@@ -92,5 +94,5 @@ fetch-url https://www.gutenberg.org/files/996/old/1donq10.txt \
 
 ## Documentation
 
-* [Commands](doc/commands.md)
-* [CookBook](doc/cookbook.md)
+### [Commands](doc/commands.md)
+### [CookBook](doc/cookbook.md)
