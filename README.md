@@ -93,3 +93,4 @@ fetch-url https://www.gutenberg.org/files/996/old/1donq10.txt \
 ## Documentation
 
 * [Commands](doc/commands.md)
+* [CookBook](doc/cookbook.md)
