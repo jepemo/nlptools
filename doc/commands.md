@@ -158,7 +158,7 @@ echo "Hello world!" | proc-tkn
 Calculate the basic text features: TF, IDF and TFIDF
 
 ```bash
-usage: feat-tfidf [-h] [--type TYPE] [--sep SEP]
+usage: feat-tfidf [-h] [--type TYPE] [--sep SEP] [--inv]
 
 Calculate tfidf, tf and idf features from a list of words
 
@@ -166,6 +166,7 @@ optional arguments:
   -h, --help   show this help message and exit
   --type TYPE  Calculation type: tfidf, tf or idf (Default tfidf)
   --sep SEP    Document separator
+  --inv        Show inverse output
 ```
 
 Example:
