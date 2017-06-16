@@ -28,6 +28,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog='feat-tfidf', description='Calculate tfidf, tf and idf features from a list of words')
     parser.add_argument("--type", type=str, default='tfidf', help="Calculation type: tfidf, tf or idf (Default tfidf)")
     parser.add_argument("--sep", type=str, default=None, help="Document separator")
+    parser.add_argument("--inv", dest="inverse", action="store_true", help="Show inverse output")
 
     args = parser.parse_args()
 
@@ -43,17 +44,36 @@ if __name__ == "__main__":
             sentence.update([word])
 
     dwords = sorted(list(set([item for sublist in [list(s.elements()) for s in all_sentences] for item in sublist])))
-    for word in dwords:
-        print(word + " ", end='')
-        for sent in all_sentences:
-            result = 0.0
-            if args.type == 'tf':
-                result = calculate_tf(word, sent)
-            elif args.type == 'idf':
-                result = calculate_idf(word, all_sentences)
-            elif args.type == 'tfidf':
-                result = calculate_tfidf(word, sent, all_sentences)
-
-            print(str(result) + " ", end='')
-
+    if args.inverse:
+        ind=0
+        for word in dwords:
+            print(word, end=' ')
         print('')
+
+        for sent in all_sentences:
+            for word in dwords:
+                result = 0.0
+                if args.type == 'tf':
+                    result = calculate_tf(word, sent)
+                elif args.type == 'idf':
+                    result = calculate_idf(word, all_sentences)
+                elif args.type == 'tfidf':
+                    result = calculate_tfidf(word, sent, all_sentences)
+
+                print(str(result) + " ", end='')
+            print('')
+    else:
+        for word in dwords:
+            print(word + " ", end='')
+            for sent in all_sentences:
+                result = 0.0
+                if args.type == 'tf':
+                    result = calculate_tf(word, sent)
+                elif args.type == 'idf':
+                    result = calculate_idf(word, all_sentences)
+                elif args.type == 'tfidf':
+                    result = calculate_tfidf(word, sent, all_sentences)
+
+                print(str(result) + " ", end='')
+
+            print('')
