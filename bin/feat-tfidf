@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-python3 tools/feature_tfidf_py3.py $@

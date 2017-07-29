@@ -1,5 +1,17 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# nlptools - Unix inspired utilities for Natural Language Processing.
+#
+# Copyright (C) 2017-present Jeremies Pérez Morata
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import argparse
 from collections import Counter
@@ -24,13 +36,13 @@ def calculate_tfidf(word, sentence, all_sentences):
     idf = calculate_idf(word, all_sentences)
     return tf * idf
 
-if __name__ == "__main__":
+def main(argv=None):
     parser = argparse.ArgumentParser(prog='feat-tfidf', description='Calculate tfidf, tf and idf features from a list of words')
     parser.add_argument("--type", type=str, default='tfidf', help="Calculation type: tfidf, tf or idf (Default tfidf)")
     parser.add_argument("--sep", type=str, default=None, help="Document separator")
     parser.add_argument("--inv", dest="inverse", action="store_true", help="Show inverse output")
 
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     all_sentences = []
     sentence = Counter()

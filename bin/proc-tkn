@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-python3 tools/tokenizer_nltk_py3.py $@
