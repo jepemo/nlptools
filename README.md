@@ -1,7 +1,7 @@
  # nlptools
 *nlptools* are an Unix inspired utilities for Natural Language Processing.
 
-- [Install](#install)
+- [Getting Started](#getting-started)
 - [Examples](#examples)
   - [Basic tokenization](#basic-tokenization)
   - [Lemmatization and Stemming](#lemmatization-and-stemming)
@@ -11,7 +11,7 @@
   - [Commands](#commands)
   - [Cookbook](#cookbook)
 
-## Install
+## Getting Started
 
 Just install it with the pip client:
 
