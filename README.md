@@ -1,6 +1,7 @@
  # nlptools
 *nlptools* are an Unix inspired utilities for Natural Language Processing.
 
+- [Install](#install)
 - [Examples](#examples)
   - [Basic tokenization](#basic-tokenization)
   - [Lemmatization and Stemming](#lemmatization-and-stemming)
@@ -9,6 +10,28 @@
 - [Documentation](#documentation)
   - [Commands](#commands)
   - [Cookbook](#cookbook)
+
+## Install
+
+Just install it with the pip client:
+
+```bash
+pip install nlptools
+```
+
+And then you can use all the commands:
+
+```bash
+proc-tkn --help
+
+# usage: proc-tkn [-h] [--lang LANG]
+#
+# Tokenize input and results one token per line
+#
+# optional arguments:
+#   -h, --help   show this help message and exit
+#   --lang LANG  Language (defalt: english): spanish, etc.
+```
 
 ## Examples
 
